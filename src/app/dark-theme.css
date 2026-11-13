@@ -48,6 +48,16 @@ body{background:#0b1120;color:#f3f6fc}
 .link-field input,.time-fields input{color:#f3f6fc}
 .link-field input::placeholder{color:#7e8ca2}
 .instagram-mark{color:#ed91b6}
+.paste-button{flex:none;border:1px solid #374968;border-radius:5px;background:#1d2c43;color:#a9dfff;padding:5px 9px;font-size:9px;font-weight:700;transition:background .2s,border-color .2s}
+.paste-button:hover{background:#243b59;border-color:#4a91d1}
+.clip-row{grid-template-columns:30px minmax(0,1fr) 98px 25px;align-items:start}
+.clip-thumbnail{position:relative;width:98px;height:148px;overflow:hidden;border:1px solid #34435b;border-radius:8px;background:#0b1120}
+.clip-thumbnail iframe{position:absolute;inset:0 auto auto 0;width:326px;height:493px;border:0;transform:scale(.3);transform-origin:top left;background:#0b1120}
+.thumbnail-label{position:absolute;left:4px;right:4px;bottom:4px;border-radius:4px;background:#09101cdd;color:#dce7f6;padding:4px 3px;text-align:center;font-size:6px;font-weight:700;letter-spacing:.7px;pointer-events:none}
+.preview-placeholder{display:grid;place-items:center}
+.thumbnail-unavailable{padding:9px;text-align:center;color:#94a2b8}
+.thumbnail-unavailable span{display:block;color:#59bdeb;font-size:22px}
+.thumbnail-unavailable small{font-size:8px;line-height:1.4}
 .remove-clip{color:#98a6bb}
 .remove-clip:hover{color:#f39aaa}
 .add-clip{color:#55c69c}
@@ -86,4 +96,8 @@ footer>span{color:#91a0b5}
 @media(max-width:600px){
   .topbar{border-color:#263248}
   .how-title h2{color:#f3f6fc}
+  .clip-row{grid-template-columns:22px minmax(0,1fr) 72px 17px;gap:5px}
+  .clip-thumbnail{width:72px;height:112px}
+  .clip-thumbnail iframe{transform:scale(.22)}
+  .thumbnail-label{font-size:5px}
 }

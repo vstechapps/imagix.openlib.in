@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 interface Clip {
   id: number;
   link: string;
   start: number;
   end: number;
+  previewUrl: SafeResourceUrl | null;
 }
 
 type Layout = 'sequence' | 'side-by-side' | 'grid';
@@ -16,15 +18,17 @@ type Layout = 'sequence' | 'side-by-side' | 'grid';
 })
 export class InstaMergeComponent {
   clips: Clip[] = [
-    { id: 1, link: '', start: 0, end: 12 },
-    { id: 2, link: '', start: 0, end: 8 },
+    { id: 1, link: '', start: 0, end: 12, previewUrl: null },
+    { id: 2, link: '', start: 0, end: 8, previewUrl: null },
   ];
   layout: Layout = 'sequence';
   notice = '';
   private nextId = 3;
 
+  constructor(private readonly sanitizer: DomSanitizer) {}
+
   addClip(): void {
-    this.clips = [...this.clips, { id: this.nextId++, link: '', start: 0, end: 10 }];
+    this.clips = [...this.clips, { id: this.nextId++, link: '', start: 0, end: 10, previewUrl: null }];
   }
 
   removeClip(id: number): void {
@@ -32,7 +36,23 @@ export class InstaMergeComponent {
   }
 
   updateLink(id: number, link: string): void {
-    this.clips = this.clips.map((clip) => clip.id === id ? { ...clip, link } : clip);
+    this.clips = this.clips.map((clip) => clip.id === id
+      ? { ...clip, link, previewUrl: this.createPreviewUrl(link) }
+      : clip);
+  }
+
+  async pasteLink(id: number): Promise<void> {
+    this.clearNotice();
+    try {
+      const link = await navigator.clipboard.readText();
+      if (!link.trim()) {
+        this.notice = 'Your clipboard is empty. Copy an Instagram link first.';
+        return;
+      }
+      this.updateLink(id, link.trim());
+    } catch {
+      this.notice = 'Clipboard access is unavailable. Paste the link into the field instead.';
+    }
   }
 
   updateTime(id: number, field: 'start' | 'end', value: string): void {
@@ -46,7 +66,7 @@ export class InstaMergeComponent {
       this.notice = 'Add a reel link to get your edit started.';
       return;
     }
-    const invalid = filled.find((clip) => !/^https?:\/\/(www\.)?instagram\.com\//i.test(clip.link.trim()));
+    const invalid = filled.find((clip) => !this.isInstagramLink(clip.link));
     if (invalid) {
       this.notice = 'Use a valid Instagram reel or post link for each clip.';
       return;
@@ -56,5 +76,24 @@ export class InstaMergeComponent {
 
   clearNotice(): void {
     this.notice = '';
+  }
+
+  private isInstagramLink(value: string): boolean {
+    try {
+      const url = new URL(value.trim());
+      return ['instagram.com', 'www.instagram.com', 'm.instagram.com'].includes(url.hostname.toLowerCase());
+    } catch {
+      return false;
+    }
+  }
+
+  private createPreviewUrl(value: string): SafeResourceUrl | null {
+    if (!this.isInstagramLink(value)) return null;
+    const url = new URL(value.trim());
+    const match = url.pathname.match(/^\/(reel|reels|p)\/([A-Za-z0-9_-]+)/i);
+    if (!match) return null;
+    const kind = match[1].toLowerCase() === 'reels' ? 'reel' : match[1].toLowerCase();
+    const embedUrl = `https://www.instagram.com/${kind}/${match[2]}/embed/`;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 }
