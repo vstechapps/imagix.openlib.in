@@ -1,0 +1,89 @@
+:root{
+  color-scheme:dark;
+  --ink:#f3f6fc;
+  --muted:#a2aec2;
+  --paper:#0b1120;
+  --white:#141d2d;
+  --orange:#47b9ee;
+  --orange-dark:#2699d2;
+  --green:#54c59c;
+  --line:#273348;
+  --soft:#172236;
+}
+body{background:#0b1120;color:#f3f6fc}
+.topbar{border-color:#263248}
+.brand-logo{filter:none}
+.topbar nav a{color:#a2aec2}
+.topbar nav a:hover,.topbar nav .nav-current{color:#f3f6fc}
+.top-cta,.top-cta.btn.btn-primary{background:#2869dc;border:1px solid #4587fa;color:#fff;box-shadow:0 5px 18px #206de833}
+.top-cta:hover,.top-cta.btn.btn-primary:hover{background:#3479eb}
+.top-cta span{color:#c5e9ff}
+.hero h1,.section-heading h2,.how-title h2,.home-tools-heading h2{color:#f3f6fc}
+.hero-description,.section-heading>p,.home-tools-heading>p,.how-title>p{color:#a2aec2}
+.hero-link{color:#edf3fc;border-color:#344158}
+.hero-footnote,.visual-note{color:#8f9cb2}
+.visual-orbit{border-color:#263247}
+.mini-video{background:#172236;box-shadow:0 14px 30px #02061066}
+.video-caption{color:#d0d8e6}
+.connector-one{color:#4cb8ec}
+.connector-two,.sparkle{color:#8b72f4}
+.merge-sticker{background:#8262ef;color:#fff;box-shadow:0 10px 25px #6745dc44}
+.merge-sticker svg{stroke:#dbd0ff}
+.tool-section,.home-tools{background:#0e1727}
+.home-tools-heading h2 span{color:#50c49a}
+.tool-card,.builder-card,.card{background:#141d2d;border:1px solid #2a3850;color:#f3f6fc;box-shadow:0 16px 40px #03071333}
+.tool-card:hover{border-color:#466185;box-shadow:0 17px 38px #02071366}
+.tool-card-copy p{color:#a2aec2}
+.tool-category{color:#98a8c0}
+.tool-card-link{color:#5ac7a0}
+.tool-card-link b{color:#59bbec}
+.builder-aside{background:#101a2a;border-color:#29364d}
+.builder-top h3,.layout-heading h3,.layout-option b,.preview-caption b,.export-info b,.steps h3{color:#f3f6fc}
+.builder-top p,.layout-heading p,.layout-option small,.preview-caption small,.export-info small,.secure-note,.steps p{color:#9eabc0}
+.tool-icon{background:#1b2c43;color:#58bdf0}
+.step-pill{background:#1d293c;color:#a8b5c8}
+.clip-index,.time-fields>span:first-child,.time-fields small{color:#9eabc0}
+.link-field,.time-fields,.layout-option{background:#101a2a;border-color:#2d3b52;color:#eaf0f9}
+.link-field:focus-within,.time-fields:focus-within{border-color:#4c9ee8;box-shadow:0 0 0 3px #3a8ede22}
+.link-field input,.time-fields input{color:#f3f6fc}
+.link-field input::placeholder{color:#7e8ca2}
+.instagram-mark{color:#ed91b6}
+.remove-clip{color:#98a6bb}
+.remove-clip:hover{color:#f39aaa}
+.add-clip{color:#55c69c}
+.divider{background:#29364b}
+.optional-label,.aside-label{color:#8694aa}
+.layout-option.selected{background:#15283a;border-color:#4e9bd5;box-shadow:0 0 0 1px #4e9bd533}
+.radio-dot{border-color:#64748b}
+.selected .radio-dot{border-color:#55c69c}
+.layout-preview{background:#26354a}
+.layout-preview i{background:#e89176}
+.sequence-preview i:nth-child(2),.split-preview i:first-child,.grid-preview i:nth-child(2),.grid-preview i:nth-child(3){background:#55bd9a}
+.sequence-preview i:nth-child(3){background:#9876eb}
+.create-button,.create-button.btn.btn-primary{background:#2874e8;border:1px solid #458cf3;color:#fff;box-shadow:0 5px 16px #1c68da3d}
+.create-button:hover,.create-button.btn.btn-primary:hover{background:#3987f7;transform:translateY(-1px)}
+.secure-note span{color:#51c19a}
+.notice{background:#133528;color:#72d8ad;border:1px solid #22513f}
+.preview-frame{background:#1c2a3a}
+.preview-topbar .preview-light{background:#65748a}
+.preview-count{color:#93d8bb}
+.preview-play{background:#dce7f233;color:#fff;border-color:#dce7f255}
+.preview-timeline i:nth-child(2){background:#55bd9a}
+.preview-timeline i:nth-child(3){background:#9876eb}
+.preview-caption .caption-asterisk{background:#273046;color:#a88df8}
+.export-info{border-color:#29364b}
+.export-icon{background:#18372e;color:#60d0a5}
+.aside-stamp{color:#8b98ad}
+.how-title .eyebrow{color:#92a1b6}
+.step-symbol{box-shadow:inset 0 0 0 1px #ffffff0d}
+.symbol-link{background:#36273f;color:#ed91b6}
+.symbol-tune{background:#17372f;color:#62cba3}
+.symbol-share{background:#252246;color:#aa91ff}
+.step-number{color:#8593a9}
+footer{border-color:#263248}
+footer>span{color:#91a0b5}
+.footer-right b{color:#58bdf0}
+@media(max-width:600px){
+  .topbar{border-color:#263248}
+  .how-title h2{color:#f3f6fc}
+}

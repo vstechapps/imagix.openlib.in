@@ -13,12 +13,17 @@
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/imagix",
-            "assets": [{ "glob": "**/*", "input": "public", "output": "/" }],
+            "assets": [
+              { "glob": "**/*", "input": "public", "output": "/" },
+              "src/favicon.ico",
+              "src/assets",
+              "src/CNAME"
+            ],
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "styles": ["src/styles.css", "src/app/app-shell.css", "src/app/home/home.component.css"]
+            "styles": ["src/styles.css", "src/app/app-shell.css", "src/app/home/home.component.css", "src/app/dark-theme.css"]
           },
           "configurations": {
             "production": { "budgets": [{ "type": "initial", "maximumWarning": "600kB", "maximumError": "1MB" }], "outputHashing": "all" },

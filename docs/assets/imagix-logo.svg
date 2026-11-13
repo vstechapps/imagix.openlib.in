@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 48" fill="none">
+  <rect x="2" y="2" width="44" height="44" rx="14" fill="#1A2940"/>
+  <path d="M24 8.5 27.5 19l10.5 5-10.5 4.1L24 39.5 20.3 28.1 10 24l10.3-5L24 8.5Z" fill="#49BDF0"/>
+  <circle cx="36.5" cy="12.5" r="2.5" fill="#9A7CFF"/>
+  <text x="58" y="33" fill="#F3F6FC" font-family="Manrope, Arial, sans-serif" font-size="29" font-weight="800" letter-spacing="-1.5">imagix</text>
+  <circle cx="149" cy="29" r="2.4" fill="#9A7CFF"/>
+</svg>
